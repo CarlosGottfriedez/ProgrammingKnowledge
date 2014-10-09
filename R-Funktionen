@@ -3,3 +3,6 @@ Diese Seite listet all die R-Funktionen auf die ich schonmal benutzt habe.
 Mit ? können wird die Dokumentation von R aufgerufen und weitere zusätzliche Informationen werden angezeigt.
 
  c, nchar, data, str, dim, names, row.names, head, and tail.
+ 
+ mtcars$mpg -- Gibt die Werte der Reihe mpg des Datenframes                  mtcars aus. (Also $ als Symbol).
+ mean       -- Gibt den Mittelwert der Daten aus z.b                        mean(mtcars$mpg).
