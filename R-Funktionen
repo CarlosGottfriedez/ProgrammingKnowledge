@@ -8,4 +8,8 @@ Mit ? können wird die Dokumentation von R aufgerufen und weitere zusätzliche I
  mean               -- Gibt den Mittelwert der Daten aus z.b                                                  mean(mtcars$mpg).
  getwd()            -- Zeigt das Verzeichnis an in welchen wir uns                                            befinden.
  setwd('quelle')    -- Wechsel des Verzeichnises setwd('~/Downloads')                                        immer in ''.
- read.csv('quelle') -- cvs-Datei einlesen.          
+ read.csv('quelle') -- cvs-Datei einlesen.
+ subset(stateInfo, pobulation==3100)    --  stateInfo ist ein Datenset und pobulation ist ein 
+ summary()--    überblick
+ mtcars$year <- 1974    -- neue Spalte mit year als überschrifft und 1974 für alle
+ mtcars <- subset(mtcars, select = -year) -- Spalte löschen 

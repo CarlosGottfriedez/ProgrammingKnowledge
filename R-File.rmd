@@ -1,0 +1,107 @@
+---
+title: "R-Funktionen"
+output: html_document
+---
+
+Diese Seite listet all die R-Funktionen auf die ich schonmal benutzt habe.
+
+**Mit ? können wird die Dokumentation von R aufgerufen und weitere zusätzliche Informationen werden angezeigt.**
+
+```
+c, nchar, data, str, dim, names, row.names, head, and tail.
+```
+```
+mtcars$mpg -- Gibt die Werte der Reihe mpg des Datenframes mtcars aus. (Also $ als Symbol).
+```
+```{r}
+mtcars$mpg
+```
+
+####Funktionen die das Zentrum beschreiben
+```{r}
+# Gibt den Mittelwert der Daten an.
+mean(mtcars$mpg)  
+```
+```{r}
+# Gibt den Median der Daten an.
+median(mtcars$mpg)
+```
+```{r}
+# Überblick über alle Daten
+summary(cars)
+```
+####Funktionen um Datenframes zu laden
+```{r}
+#Zeigt das Verzeichnis an in welchen wir uns befinden.
+getwd() 
+``` 
+```
+#Wechsel des Verzeichnises setwd('~/Downloads') immer in ''.
+setwd('~/Downloads') 
+#cvs-Datei einlesen.
+read.csv('reddit.csv')
+```
+####Andere Funktionen
+
+
+```
+subset(stateInfo, pobulation==3100)   # stateInfo ist ein Datenset und population ein
+```
+
+```{r}
+# Zeigt einen Überblick an
+summary(mtcars)
+```
+
+```{r}
+# neue Spalte mit year als überschrifft und 1974 für alle
+mtcars$year <- 1974    
+```
+
+```{r}
+# Spalte löschen
+mtcars <- subset(mtcars, select = -year)
+```
+
+```{r}
+mtcars$wt
+cond <- mtcars$wt < 3
+cond
+mtcars$weight_class <- ifelse(cond, 'light', 'average')
+mtcars$weight_class
+cond <- mtcars$wt > 3.5
+mtcars$weight_class <- ifelse(cond, 'heavy', mtcars$weight_class)
+mtcars$weight_class
+```
+
+```{r}
+# entfernt code aus dem arbeitsbereich
+rm(cond)
+rm(efficient)
+```
+
+```{r}
+# zeigt die Anzahl der Fahrzeuge mit bestimmten Werten an
+table(mtcars$mpg)
+```
+
+
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+####So macht man links
+```
+[Udacity website](https://www.udacity.com/course/viewer#!/c-ud651/l-729069797/e-804129319/m-811719066)
+```
+*This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.*
