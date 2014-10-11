@@ -1,0 +1,604 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{48,48,48}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.94,0.87,0.69}{{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.87,0.87,0.75}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.86,0.86,0.80}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.86,0.64,0.64}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.75,0.75,0.82}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.86,0.64,0.64}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.80,0.58,0.58}{{#1}}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.50,0.62,0.50}{{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.94,0.94,0.56}{{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.81,0.69}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.94,0.94,0.56}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.80,0.80,0.80}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.76,0.75,0.62}{{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.80,0.80,0.80}{{#1}}}
+\usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={R-Funktionen},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{5}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+\setlength{\droptitle}{-2em}
+  \title{R-Funktionen}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{}
+  \preauthor{}\postauthor{}
+  \date{}
+  \predate{}\postdate{}
+
+
+
+
+\begin{document}
+
+\maketitle
+
+
+\section{R-Funktionen}\label{r-funktionen}
+
+Diese Seite listet all die R-Funktionen auf die ich schonmal benutzt
+habe.
+
+\textbf{Mit ? können wird die Dokumentation von R aufgerufen und weitere
+zusätzliche Informationen werden angezeigt.}
+
+\begin{verbatim}
+c, nchar, data, str, dim, names, row.names, head, and tail.
+\end{verbatim}
+
+\begin{verbatim}
+mtcars$mpg -- Gibt die Werte der Reihe mpg des Datenframes mtcars aus. (Also $ als Symbol).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars$mpg}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2
+## [15] 10.4 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4
+## [29] 15.8 19.7 15.0 21.4
+\end{verbatim}
+
+\section{Funktionen die das Zentrum
+beschreiben}\label{funktionen-die-das-zentrum-beschreiben}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Gibt den Mittelwert der Daten an.}
+\KeywordTok{mean}\NormalTok{(mtcars$mpg)  }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 20.09
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Gibt den Median der Daten an.}
+\KeywordTok{median}\NormalTok{(mtcars$mpg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 19.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Überblick über alle Daten}
+\KeywordTok{summary}\NormalTok{(cars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      speed           dist    
+##  Min.   : 4.0   Min.   :  2  
+##  1st Qu.:12.0   1st Qu.: 26  
+##  Median :15.0   Median : 36  
+##  Mean   :15.4   Mean   : 43  
+##  3rd Qu.:19.0   3rd Qu.: 56  
+##  Max.   :25.0   Max.   :120
+\end{verbatim}
+
+\subsection{Funktionen um Datenframes zu
+laden}\label{funktionen-um-datenframes-zu-laden}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Zeigt das Verzeichnis an in welchen wir uns befinden.}
+\KeywordTok{getwd}\NormalTok{() }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "/Users/user/AllGitHub/ProgrammingKnowledge"
+\end{verbatim}
+
+\begin{verbatim}
+#Wechsel des Verzeichnises setwd('~/Downloads') immer in ''.
+setwd('~/Downloads') 
+#cvs-Datei einlesen.
+read.csv('reddit.csv')
+\end{verbatim}
+
+\paragraph{Andere Funktionen}\label{andere-funktionen}
+
+\begin{verbatim}
+subset(stateInfo, pobulation==3100)   # stateInfo ist ein Datenset und population ein
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Zeigt einen Überblick an}
+\KeywordTok{summary}\NormalTok{(mtcars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       mpg            cyl            disp             hp       
+##  Min.   :10.4   Min.   :4.00   Min.   : 71.1   Min.   : 52.0  
+##  1st Qu.:15.4   1st Qu.:4.00   1st Qu.:120.8   1st Qu.: 96.5  
+##  Median :19.2   Median :6.00   Median :196.3   Median :123.0  
+##  Mean   :20.1   Mean   :6.19   Mean   :230.7   Mean   :146.7  
+##  3rd Qu.:22.8   3rd Qu.:8.00   3rd Qu.:326.0   3rd Qu.:180.0  
+##  Max.   :33.9   Max.   :8.00   Max.   :472.0   Max.   :335.0  
+##       drat            wt            qsec            vs       
+##  Min.   :2.76   Min.   :1.51   Min.   :14.5   Min.   :0.000  
+##  1st Qu.:3.08   1st Qu.:2.58   1st Qu.:16.9   1st Qu.:0.000  
+##  Median :3.69   Median :3.33   Median :17.7   Median :0.000  
+##  Mean   :3.60   Mean   :3.22   Mean   :17.8   Mean   :0.438  
+##  3rd Qu.:3.92   3rd Qu.:3.61   3rd Qu.:18.9   3rd Qu.:1.000  
+##  Max.   :4.93   Max.   :5.42   Max.   :22.9   Max.   :1.000  
+##        am             gear           carb     
+##  Min.   :0.000   Min.   :3.00   Min.   :1.00  
+##  1st Qu.:0.000   1st Qu.:3.00   1st Qu.:2.00  
+##  Median :0.000   Median :4.00   Median :2.00  
+##  Mean   :0.406   Mean   :3.69   Mean   :2.81  
+##  3rd Qu.:1.000   3rd Qu.:4.00   3rd Qu.:4.00  
+##  Max.   :1.000   Max.   :5.00   Max.   :8.00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# neue Spalte mit year als überschrifft und 1974 für alle}
+\NormalTok{mtcars$year <-}\StringTok{ }\DecValTok{1974}    
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Spalte löschen}
+\NormalTok{mtcars <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(mtcars, }\DataTypeTok{select =} \NormalTok{-year)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars$wt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 2.620 2.875 2.320 3.215 3.440 3.460 3.570 3.190 3.150 3.440 3.440
+## [12] 4.070 3.730 3.780 5.250 5.424 5.345 2.200 1.615 1.835 2.465 3.520
+## [23] 3.435 3.840 3.845 1.935 2.140 1.513 3.170 2.770 3.570 2.780
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cond <-}\StringTok{ }\NormalTok{mtcars$wt <}\StringTok{ }\DecValTok{3}
+\NormalTok{cond}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [12] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE
+## [23] FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars$weight_class <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(cond, }\StringTok{'light'}\NormalTok{, }\StringTok{'average'}\NormalTok{)}
+\NormalTok{mtcars$weight_class}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "light"   "light"   "light"   "average" "average" "average" "average"
+##  [8] "average" "average" "average" "average" "average" "average" "average"
+## [15] "average" "average" "average" "light"   "light"   "light"   "light"  
+## [22] "average" "average" "average" "average" "light"   "light"   "light"  
+## [29] "average" "light"   "average" "light"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cond <-}\StringTok{ }\NormalTok{mtcars$wt >}\StringTok{ }\FloatTok{3.5}
+\NormalTok{mtcars$weight_class <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(cond, }\StringTok{'heavy'}\NormalTok{, mtcars$weight_class)}
+\NormalTok{mtcars$weight_class}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "light"   "light"   "light"   "average" "average" "average" "heavy"  
+##  [8] "average" "average" "average" "average" "heavy"   "heavy"   "heavy"  
+## [15] "heavy"   "heavy"   "heavy"   "light"   "light"   "light"   "light"  
+## [22] "heavy"   "average" "heavy"   "heavy"   "light"   "light"   "light"  
+## [29] "average" "light"   "heavy"   "light"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# entfernt code aus dem arbeitsbereich}
+\KeywordTok{rm}\NormalTok{(cond)}
+\KeywordTok{rm}\NormalTok{(efficient)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Objekt 'efficient' nicht gefunden
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# zeigt die Anzahl der Fahrzeuge mit bestimmten Werten an}
+\KeywordTok{table}\NormalTok{(mtcars$mpg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## 10.4 13.3 14.3 14.7   15 15.2 15.5 15.8 16.4 17.3 17.8 18.1 18.7 19.2 19.7 
+##    2    1    1    1    1    2    1    1    1    1    1    1    1    2    1 
+##   21 21.4 21.5 22.8 24.4   26 27.3 30.4 32.4 33.9 
+##    2    2    1    2    1    1    1    2    1    1
+\end{verbatim}
+
+\begin{verbatim}
+# Für Faktrone als Datentypen
+levels(reddit$age.range)
+\end{verbatim}
+
+\begin{verbatim}
+# Um eine Plot zu zeichnen
+install.packages('ggplot2', dependencies = T)
+library(ggplot2)
+gplot(data= reddit, x=age.range)
+\end{verbatim}
+
+\subsection{Datentypen}\label{datentypen}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Vektoren
+\end{enumerate}
+
+Ein Beispiel für Vektoren
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\FloatTok{5.3}\NormalTok{,}\DecValTok{6}\NormalTok{,-}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{) }\CommentTok{# numeric vector}
+\NormalTok{b <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"one"}\NormalTok{,}\StringTok{"two"}\NormalTok{,}\StringTok{"three"}\NormalTok{) }\CommentTok{# character vector}
+\NormalTok{c <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{,}\OtherTok{TRUE}\NormalTok{,}\OtherTok{TRUE}\NormalTok{,}\OtherTok{FALSE}\NormalTok{,}\OtherTok{TRUE}\NormalTok{,}\OtherTok{FALSE}\NormalTok{) }\CommentTok{#logical vector}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Matrizen
+\end{enumerate}
+
+Ein Beispiel für Matrizen
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# generates 5 x 4 numeric matrix }
+\NormalTok{y<-}\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{20}\NormalTok{, }\DataTypeTok{nrow=}\DecValTok{5}\NormalTok{,}\DataTypeTok{ncol=}\DecValTok{4}\NormalTok{)}
+
+\CommentTok{# another example}
+\NormalTok{cells <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{26}\NormalTok{,}\DecValTok{24}\NormalTok{,}\DecValTok{68}\NormalTok{)}
+\NormalTok{rnames <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"R1"}\NormalTok{, }\StringTok{"R2"}\NormalTok{)}
+\NormalTok{cnames <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"C1"}\NormalTok{, }\StringTok{"C2"}\NormalTok{) }
+\NormalTok{mymatrix <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(cells, }\DataTypeTok{nrow=}\DecValTok{2}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{, }\DataTypeTok{byrow=}\OtherTok{TRUE}\NormalTok{,}
+  \DataTypeTok{dimnames=}\KeywordTok{list}\NormalTok{(rnames, cnames))}
+\NormalTok{mymatrix[]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    C1 C2
+## R1  1 26
+## R2 24 68
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Arrays
+\end{enumerate}
+
+Sind wie Matrizen aufgebaut, nur sind mehrere Dimensionen möglich Arrays
+are similar to matrices but can have more than two dimensions. See
+help(array) for details.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Data Frames
+\end{enumerate}
+
+A data frame is more general than a matrix, in that different columns
+can have different modes (numeric, character, factor, etc.). This is
+similar to SAS and SPSS datasets.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{)}
+\NormalTok{e <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"white"}\NormalTok{, }\StringTok{"red"}\NormalTok{, }\OtherTok{NA}\NormalTok{)}
+\NormalTok{f <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{,}\OtherTok{TRUE}\NormalTok{,}\OtherTok{TRUE}\NormalTok{,}\OtherTok{FALSE}\NormalTok{)}
+\NormalTok{mydata <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(d,e,f)}
+\KeywordTok{names}\NormalTok{(mydata) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"ID"}\NormalTok{,}\StringTok{"Color"}\NormalTok{,}\StringTok{"Passed"}\NormalTok{) }\CommentTok{# variable names}
+\NormalTok{mydata}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   ID Color Passed
+## 1  1   red   TRUE
+## 2  2 white   TRUE
+## 3  3   red   TRUE
+## 4  4  <NA>  FALSE
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  List
+\end{enumerate}
+
+An ordered collection of objects (components). A list allows you to
+gather a variety of (possibly unrelated) objects under one name.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# example of a list with 4 components - }
+\CommentTok{# a string, a numeric vector, a matrix, and a scaler }
+\NormalTok{w <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{name=}\StringTok{"Fred"}\NormalTok{, }\DataTypeTok{mynumbers=}\NormalTok{a, }\DataTypeTok{mymatrix=}\NormalTok{y, }\DataTypeTok{age=}\FloatTok{5.3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# example of a list containing two lists 
+v <- c(list1,list2)
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Factors
+\end{enumerate}
+
+Tell R that a variable is nominal by making it a factor. The factor
+stores the nominal values as a vector of integers in the range {[}
+1\ldots{} k {]} (where k is the number of unique values in the nominal
+variable), and an internal vector of character strings (the original
+values) mapped to these integers.
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Nominale Variablen
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# variable gender with 20 "male" entries and }
+\CommentTok{# 30 "female" entries }
+\NormalTok{gender <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\StringTok{"male"}\NormalTok{,}\DecValTok{20}\NormalTok{), }\KeywordTok{rep}\NormalTok{(}\StringTok{"female"}\NormalTok{, }\DecValTok{30}\NormalTok{)) }
+\NormalTok{gender <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(gender) }
+\CommentTok{# stores gender as 20 1s and 30 2s and associates}
+\CommentTok{# 1=female, 2=male internally (alphabetically)}
+\CommentTok{# R now treats gender as a nominal variable }
+\KeywordTok{summary}\NormalTok{(gender)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## female   male 
+##     30     20
+\end{verbatim}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Ordinale Variablen
+\end{itemize}
+
+An ordered factor is used to represent an ordinal variable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# variable rating coded as "large", "medium", "small'}
+\NormalTok{rating <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\StringTok{"large"}\NormalTok{), }\KeywordTok{rep}\NormalTok{(}\StringTok{"medium"}\NormalTok{), }\KeywordTok{rep}\NormalTok{(}\StringTok{"small"}\NormalTok{))}
+\NormalTok{rating <-}\StringTok{ }\KeywordTok{ordered}\NormalTok{(rating)}
+
+\KeywordTok{summary}\NormalTok{(rating)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  large medium  small 
+##      1      1      1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# recodes rating to 1,2,3 and associates}
+\CommentTok{# 1=large, 2=medium, 3=small internally}
+\CommentTok{# R now treats rating as ordinal}
+\end{Highlighting}
+\end{Shaded}
+
+R will treat factors as nominal variables and ordered factors as ordinal
+variables in statistical proceedures and graphical analyses. You can use
+options in the factor( ) and ordered( ) functions to control the mapping
+of integers to strings (overiding the alphabetical ordering). You can
+also use factors to create value labels. For more on factors see the
+UCLA page.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Nützliche Funktionen
+\end{enumerate}
+
+\begin{verbatim}
+length(object) # number of elements or components
+str(object)    # structure of an object 
+class(object)  # class or type of an object
+names(object)  # names
+
+c(object,object,...)       # combine objects into a vector
+cbind(object, object, ...) # combine objects as columns
+rbind(object, object, ...) # combine objects as rows 
+
+object     # prints the object
+
+ls()       # list current objects
+rm(object) # delete an object
+
+newobject <- edit(object) # edit copy and save as newobject 
+fix(object)               # edit in place
+\end{verbatim}
+
+\section{Tabellen}\label{tabellen}
+
+Zum Einbinden von Tabellen eignet sich R-Markdown ebenfalls, ess muss
+nur die Tabelle in der Datei haben ein Beispiel:
+
+\begin{verbatim}
+man kann die Layouts verändern, wenn man dies in die Meta daten der Datei schreibt
+
+rmarkdown::tufte_handout:
+  highlight: zenburn
+  
+wenn man die Folgenden Daten im Chunkout schreibt wird die Tabele im R ausgeführt.
+
+library(xtable)
+options(xtable.comment = FALSE)
+options(xtable.booktabs = TRUE)
+xtable(head(mtcars[, 1:6]), caption = "First rows of mtcars")
+\end{verbatim}
+
+When you click the \textbf{Knit} button a document will be generated
+that includes both content as well as the output of any embedded R code
+chunks within the document. You can embed an R code chunk like this:
+
+You can also embed plots, for example:
+
+\includegraphics{./R-File_files/figure-latex/unnamed-chunk-18.pdf}
+
+Note that the \texttt{echo = FALSE} parameter was added to the code
+chunk to prevent printing of the R code that generated the plot.
+
+\paragraph{So macht man links}\label{so-macht-man-links}
+
+\begin{verbatim}
+[Udacity website](https://www.udacity.com/course/viewer#!/c-ud651/l-729069797/e-804129319/m-811719066)
+\end{verbatim}
+
+\emph{This is an R Markdown document. Markdown is a simple formatting
+syntax for authoring HTML, PDF, and MS Word documents. For more details
+on using R Markdown see \url{http://rmarkdown.rstudio.com}.}
+
+\end{document}

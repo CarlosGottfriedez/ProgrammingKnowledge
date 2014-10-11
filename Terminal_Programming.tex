@@ -1,0 +1,134 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage[margin=1in]{geometry}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Terminal Funktionen},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{5}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+\setlength{\droptitle}{-2em}
+  \title{Terminal Funktionen}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{}
+  \preauthor{}\postauthor{}
+  \date{}
+  \predate{}\postdate{}
+
+
+
+
+\begin{document}
+
+\maketitle
+
+
+{
+\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\section{Teriminal Notes}\label{teriminal-notes}
+
+\begin{quote}
+Hier kommen die Notizen zu meinen Terminal Eingaben, die ich bislang
+kann.
+\end{quote}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  pwd -- to see what the current working directory is.
+\item
+  ls -- um die Unterverzeichnise bzw. Dateien anzuzeigen.
+\item
+  cd foo to change to the foo subdirectory of your working directory.
+\item
+  cd .. to move up to the parent of the working directory.
+\item
+  mkdir foo to create a subdirectory called foo in the working
+  directory.
+\item
+  up-arrow to go back through your command history.
+\item
+  tab to complete directories and file names.
+\item
+  pandoc --version -- um zu erfahren welche Pandoc-Version installiert
+  ist
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\textbf{um eine Datei durch pandoc in eine html-Datei zuschreiben}
+
+\begin{verbatim}
+pandoc test1.md -f markdown -t html -s -o test1.html
+\end{verbatim}
+
+\textbf{um eine Datei in eine pdf datei umzuwandeln}
+
+\begin{verbatim}
+pandoc text.md -s -o test1.pdf
+\end{verbatim}
+
+\textbf{falls man eine Option/Funktion vergessen hat -- hilft
+folgendes:}
+
+\begin{verbatim}
+pandoc --help
+-- oder -- 
+man pandoc # ruft das Manual auf
+\end{verbatim}
+
+\subsection{Shortcuts}\label{shortcuts}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  mit dem \textbf{Tab} werden Komandos vervollständigt.
+\item
+  mit \textbf{cmd d} lässt sich das Terminal splitten
+\item
+  mit \textbf{Ctrl-D} kommt man aus einem Programm raus
+\end{itemize}
+
+\end{document}

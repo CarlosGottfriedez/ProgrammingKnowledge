@@ -1,23 +1,46 @@
 ---
 title: "R-Funktionen"
-output: html_document
+output:
+  html_document:
+    theme: united
+    toc: yes
+  pdf_document:
+    highlight: zenburn
+    keep_tex: yes
+    number_sections: yes
+    toc: no
 ---
 #R-Funktionen
 Diese Seite listet all die R-Funktionen auf die ich schonmal benutzt habe.
+Ich versuche so weit es geht die ausgeführten Beispiele mit anzuzeigen.
+***
 
-**Mit ? können wird die Dokumentation von R aufgerufen und weitere zusätzliche Informationen werden angezeigt.**
+Mit ? können wird die Dokumentation von R aufgerufen und weitere zusätzliche Informationen werden angezeigt.
+```{r}
+# zum Beispiel
+?row.names
+```
+
 
 ```
-c, nchar, data, str, dim, names, row.names, head, and tail.
-```
-```
-mtcars$mpg -- Gibt die Werte der Reihe mpg des Datenframes mtcars aus. (Also $ als Symbol).
+c, nchar, data, str, dim, names, head, and tail.
 ```
 ```{r}
+# zeigt alle Observations an
+row.names(mtcars)
+```
+
+
+***
+
+**Es folgen mehrere Beispiel mit R-Code**
+
+```{r}
+# Gibt die Werte der Variable mpg des Datenframes mtcars aus. (Also $ als Symbol).
 mtcars$mpg
 ```
 
-####Funktionen die das Zentrum beschreiben
+##Funktionen die das Zentrum beschreiben
 ```{r}
 # Gibt den Mittelwert der Daten an.
 mean(mtcars$mpg)  
@@ -30,22 +53,23 @@ median(mtcars$mpg)
 # Überblick über alle Daten
 summary(cars)
 ```
-####Funktionen um Datenframes zu laden
+
+##Funktionen um Datenframes zu laden
 ```{r}
 #Zeigt das Verzeichnis an in welchen wir uns befinden.
 getwd() 
 ``` 
 ```
-#Wechsel des Verzeichnises setwd('~/Downloads') immer in ''.
+#Wechsel des Verzeichnises setwd('~/Downloads') immer in **'' - Zeichen**.
 setwd('~/Downloads') 
 #cvs-Datei einlesen.
 read.csv('reddit.csv')
 ```
-####Andere Funktionen
+##Andere Funktionen
 
-
-```
-subset(stateInfo, pobulation==3100)   # stateInfo ist ein Datenset und population ein
+```{r}
+# zeigt ein Subset
+subset(mtcars, mtcars$mpg<=25 & mtcars$wt<=2.581 )   
 ```
 
 ```{r}
@@ -64,6 +88,7 @@ mtcars <- subset(mtcars, select = -year)
 ```
 
 ```{r}
+# Ein Beispiel für Konditionen
 mtcars$wt
 cond <- mtcars$wt < 3
 cond
@@ -189,29 +214,49 @@ R will treat factors as nominal variables and ordered factors as ordinal variabl
 
 7. Nützliche Funktionen
 
-```
-length(object) # number of elements or components
-str(object)    # structure of an object 
-class(object)  # class or type of an object
-names(object)  # names
+```{r}
+length(mtcars) # number of the variables or components
+str(mtcars)    # structure of an object 
+class(mtcars$wt)  # class or type of an object
+class(mtcars) # many options
+names(mtcars) # names of the Variables
 
+mtcars     # prints the object mtcars
+ls()   # list current objects
+
+```
+
+
+
+```
 c(object,object,...)       # combine objects into a vector
 cbind(object, object, ...) # combine objects as columns
 rbind(object, object, ...) # combine objects as rows 
-
-object     # prints the object
-
-ls()       # list current objects
-rm(object) # delete an object
 
 newobject <- edit(object) # edit copy and save as newobject 
 fix(object)               # edit in place
 
 ```
 
+#Tabellen
 
+Zum Einbinden von Tabellen eignet sich R-Markdown ebenfalls,
+ess muss nur die Tabelle in der Datei haben 
+ein Beispiel:
+```
+man kann die Layouts verändern, wenn man dies in die Meta daten der Datei schreibt
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+rmarkdown::tufte_handout:
+  highlight: zenburn
+  
+wenn man die Folgenden Daten im Chunkout schreibt wird die Tabele im R ausgeführt.
+
+library(xtable)
+options(xtable.comment = FALSE)
+options(xtable.booktabs = TRUE)
+xtable(head(mtcars[, 1:6]), caption = "First rows of mtcars")
+
+```
 
 
 
@@ -222,7 +267,7 @@ plot(cars)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
+##Funktionen für das Setup des Pdf´s unter R-Studion 
 
 ####So macht man links
 ```
