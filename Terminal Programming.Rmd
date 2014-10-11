@@ -2,27 +2,27 @@
 title: "Terminal Funktionen"
 output:
   html_document:
+    keep_tex: yes
     theme: united
     toc: yes
-    keep_tex: yes
   pdf_document:
     highlight: zenburn
     keep_tex: yes
     number_sections: yes
     toc: yes
 ---
-
+***
 #Teriminal Notes
 
 Hier kommen die Notizen zu meinen Terminal Eingaben, die ich bislang kann.
 
 
-* **pwd** -- to see what the current working directory is.
-* **ls** -- um die Unterverzeichnise bzw. Dateien anzuzeigen.
-* **cd foo** -- to change to the foo subdirectory of your working directory.
-* **cd ..** -- to move up to the parent of the working directory.
-* **mkdir foo** -- to create a subdirectory called foo in the working directory.
-* **pandoc --version** -- um zu erfahren welche Pandoc-Version installiert ist
+* `pwd` -- to see what the current working directory is.
+* `ls` -- um die Unterverzeichnise bzw. Dateien anzuzeigen.
+* `cd foo` -- to change to the foo subdirectory of your working directory.
+* `cd ..` -- to move up to the parent of the working directory.
+* `mkdir foo` -- to create a subdirectory called foo in the working directory.
+* `pandoc --version` -- um zu erfahren welche Pandoc-Version installiert ist
 
 ***
 
@@ -44,11 +44,11 @@ pandoc text.md -s -o test1.pdf
 pandoc --help
 -- oder -- 
 man pandoc # ruft das Manual auf
-```
+````
 #Shortcuts
-* **up-arrow** -- to go back through your command history.
-* mit dem **Tab** werden Komandos vervollständigt.
-* mit **cmd d** lässt sich das Terminal splitten
-* mit **Ctrl-D** kommt man aus einem Programm raus
+* `up-arrow` -- to go back through your command history.
+* mit dem `Tab` werden Komandos vervollständigt.
+* mit `cmd d` lässt sich das Terminal splitten
+* mit `Ctrl-D`kommt man aus einem Programm raus
 
 

@@ -67,33 +67,30 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
 \section{Teriminal Notes}\label{teriminal-notes}
 
-\begin{quote}
 Hier kommen die Notizen zu meinen Terminal Eingaben, die ich bislang
 kann.
-\end{quote}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  pwd -- to see what the current working directory is.
+  \texttt{pwd} -- to see what the current working directory is.
 \item
-  ls -- um die Unterverzeichnise bzw. Dateien anzuzeigen.
+  \texttt{ls} -- um die Unterverzeichnise bzw. Dateien anzuzeigen.
 \item
-  cd foo to change to the foo subdirectory of your working directory.
-\item
-  cd .. to move up to the parent of the working directory.
-\item
-  mkdir foo to create a subdirectory called foo in the working
+  \texttt{cd foo} -- to change to the foo subdirectory of your working
   directory.
 \item
-  up-arrow to go back through your command history.
+  \texttt{cd ..} -- to move up to the parent of the working directory.
 \item
-  tab to complete directories and file names.
+  \texttt{mkdir foo} -- to create a subdirectory called foo in the
+  working directory.
 \item
-  pandoc --version -- um zu erfahren welche Pandoc-Version installiert
-  ist
+  \texttt{pandoc -\/-version}-- um zu erfahren welche Pandoc-Version
+  installiert ist
 \end{itemize}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
@@ -119,16 +116,18 @@ pandoc --help
 man pandoc # ruft das Manual auf
 \end{verbatim}
 
-\subsection{Shortcuts}\label{shortcuts}
+\section{Shortcuts}\label{shortcuts}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  mit dem \textbf{Tab} werden Komandos vervollständigt.
+  \texttt{up-arrow} -- to go back through your command history.
 \item
-  mit \textbf{cmd d} lässt sich das Terminal splitten
+  mit dem \texttt{Tab} werden Komandos vervollständigt.
 \item
-  mit \textbf{Ctrl-D} kommt man aus einem Programm raus
+  mit \texttt{cmd d} lässt sich das Terminal splitten
+\item
+  mit `Ctrl-D kommt man aus einem Programm raus
 \end{itemize}
 
 \end{document}
