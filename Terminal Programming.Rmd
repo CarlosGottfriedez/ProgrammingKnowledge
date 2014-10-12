@@ -1,14 +1,14 @@
 ---
 title: "Terminal Funktionen"
 output:
-  html_document:
-    keep_tex: yes
-    theme: united
-    toc: yes
   pdf_document:
     highlight: zenburn
     keep_tex: yes
     number_sections: yes
+    toc: yes
+  html_document:
+    keep_tex: yes
+    theme: united
     toc: yes
 ---
 ***
@@ -50,5 +50,6 @@ man pandoc # ruft das Manual auf
 * mit dem `Tab` werden Komandos vervollständigt.
 * mit `cmd d` lässt sich das Terminal splitten
 * mit `Ctrl-D`kommt man aus einem Programm raus
+* `ctrl-c` -- zum beenden von laufenden Programmen
 
 

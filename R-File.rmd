@@ -113,15 +113,28 @@ table(mtcars$mpg)
 # Für Faktrone als Datentypen
 levels(reddit$age.range)
 ```
-```
-# Um eine Plot zu zeichnen
-install.packages('ggplot2', dependencies = T)
+##qplot
+
+qplot is the basic plotting function in the ggplot2 package, designed to be familiar if you're used to plot from the base package.
+Parameter für qplot:
+
+`x = Variabelname`
+`data = Datenname`
+`xlim = Vektor(Von, Bis)`
+`binwidth = Balkendicke`
+`facet_wrap(~gender, ncol = 2) -- Aufteilen in Einzelne kleine Fenster`
+
+### Um eine Plot zu zeichnen
+```{r}
+#install.packages('ggplot2', dependencies = T)
 library(ggplot2)
-gplot(data= reddit, x=age.range)
+qplot(data= mtcars, x=wt)
+
 ```
 
-##Datentypen
-1. Vektoren
+
+## Datentypen
+(@) Vektoren
 
 Ein Beispiel für Vektoren
 ```{r}
@@ -131,7 +144,7 @@ c <- c(TRUE,TRUE,TRUE,FALSE,TRUE,FALSE) #logical vector
 ```
 
 
-2. Matrizen
+(@) Matrizen
 
 Ein Beispiel für Matrizen 
 ```{r}
@@ -147,12 +160,12 @@ mymatrix <- matrix(cells, nrow=2, ncol=2, byrow=TRUE,
 mymatrix[]
 
 ```
-3. Arrays
+(@) Arrays
 
 Sind wie Matrizen aufgebaut, nur sind mehrere Dimensionen möglich
 Arrays are similar to matrices but can have more than two dimensions. See help(array) for details.
 
-4. Data Frames
+(@) Data Frames
 
 A data frame is more general than a matrix, in that different columns can have different modes (numeric, character, factor, etc.). This is similar to SAS and SPSS datasets.
 ```{r}
@@ -164,7 +177,7 @@ names(mydata) <- c("ID","Color","Passed") # variable names
 mydata
 ```
 
-5. List
+(@) List
 
 An ordered collection of objects (components). A list allows you to gather a variety of (possibly unrelated) objects under one name.
 
@@ -178,7 +191,7 @@ w <- list(name="Fred", mynumbers=a, mymatrix=y, age=5.3)
 v <- c(list1,list2)
 ```
 
-6. Factors
+(@) Factors
 
 Tell R that a variable is nominal by making it a factor. The factor stores the nominal values as a vector of integers in the range [ 1... k ] (where k is the number of unique values in the nominal variable), and an internal vector of character strings (the original values) mapped to these integers.
 
@@ -212,7 +225,7 @@ summary(rating)
 
 R will treat factors as nominal variables and ordered factors as ordinal variables in statistical proceedures and graphical analyses. You can use options in the factor( ) and ordered( ) functions to control the mapping of integers to strings (overiding the alphabetical ordering). You can also use factors to create value labels. For more on factors see the UCLA page.
 
-7. Nützliche Funktionen
+(@) Nützliche Funktionen
 
 ```{r}
 length(mtcars) # number of the variables or components
