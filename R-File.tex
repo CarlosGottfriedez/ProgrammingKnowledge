@@ -107,21 +107,51 @@
 \section{R-Funktionen}\label{r-funktionen}
 
 Diese Seite listet all die R-Funktionen auf die ich schonmal benutzt
-habe.
+habe. Ich versuche so weit es geht die ausgeführten Beispiele mit
+anzuzeigen. ***
 
-\textbf{Mit ? können wird die Dokumentation von R aufgerufen und weitere
-zusätzliche Informationen werden angezeigt.}
+Mit ? können wird die Dokumentation von R aufgerufen und weitere
+zusätzliche Informationen werden angezeigt.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# zum Beispiel}
+\NormalTok{?row.names}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
-c, nchar, data, str, dim, names, row.names, head, and tail.
-\end{verbatim}
-
-\begin{verbatim}
-mtcars$mpg -- Gibt die Werte der Reihe mpg des Datenframes mtcars aus. (Also $ als Symbol).
+c, nchar, data, str, dim, names, head, and tail.
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# zeigt alle Observations an}
+\KeywordTok{row.names}\NormalTok{(mtcars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"         
+##  [4] "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"            
+##  [7] "Duster 360"          "Merc 240D"           "Merc 230"           
+## [10] "Merc 280"            "Merc 280C"           "Merc 450SE"         
+## [13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood" 
+## [16] "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"           
+## [19] "Honda Civic"         "Toyota Corolla"      "Toyota Corona"      
+## [22] "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
+## [25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"      
+## [28] "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
+## [31] "Maserati Bora"       "Volvo 142E"
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\textbf{Es folgen mehrere Beispiel mit R-Code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Gibt die Werte der Variable mpg des Datenframes mtcars aus. (Also $ als Symbol).}
 \NormalTok{mtcars$mpg}
 \end{Highlighting}
 \end{Shaded}
@@ -132,7 +162,7 @@ mtcars$mpg -- Gibt die Werte der Reihe mpg des Datenframes mtcars aus. (Also $ a
 ## [29] 15.8 19.7 15.0 21.4
 \end{verbatim}
 
-\section{Funktionen die das Zentrum
+\subsection{Funktionen die das Zentrum
 beschreiben}\label{funktionen-die-das-zentrum-beschreiben}
 
 \begin{Shaded}
@@ -189,16 +219,25 @@ laden}\label{funktionen-um-datenframes-zu-laden}
 \end{verbatim}
 
 \begin{verbatim}
-#Wechsel des Verzeichnises setwd('~/Downloads') immer in ''.
+#Wechsel des Verzeichnises setwd('~/Downloads') immer in **'' - Zeichen**.
 setwd('~/Downloads') 
 #cvs-Datei einlesen.
 read.csv('reddit.csv')
 \end{verbatim}
 
-\paragraph{Andere Funktionen}\label{andere-funktionen}
+\subsection{Andere Funktionen}\label{andere-funktionen}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# zeigt ein Subset}
+\KeywordTok{subset}\NormalTok{(mtcars, mtcars$mpg<=}\DecValTok{25} \NormalTok{&}\StringTok{ }\NormalTok{mtcars$wt<=}\FloatTok{2.581} \NormalTok{)   }
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
-subset(stateInfo, pobulation==3100)   # stateInfo ist ein Datenset und population ein
+##                mpg cyl  disp hp drat    wt  qsec vs am gear carb
+## Datsun 710    22.8   4 108.0 93 3.85 2.320 18.61  1  1    4    1
+## Toyota Corona 21.5   4 120.1 97 3.70 2.465 20.01  1  0    3    1
 \end{verbatim}
 
 \begin{Shaded}
@@ -248,6 +287,7 @@ subset(stateInfo, pobulation==3100)   # stateInfo ist ein Datenset und populatio
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# Ein Beispiel für Konditionen}
 \NormalTok{mtcars$wt}
 \end{Highlighting}
 \end{Shaded}
@@ -334,12 +374,31 @@ subset(stateInfo, pobulation==3100)   # stateInfo ist ein Datenset und populatio
 levels(reddit$age.range)
 \end{verbatim}
 
+\subsection{qplot}\label{qplot}
+
+qplot is the basic plotting function in the ggplot2 package, designed to
+be familiar if you're used to plot from the base package. Parameter für
+qplot:
+
+\texttt{x = Variabelname} \texttt{data = Datenname}
+\texttt{xlim = Vektor(Von, Bis)} \texttt{binwidth = Balkendicke}
+\texttt{facet\_wrap(\textasciitilde{}gender, ncol = 2) -\/- Aufteilen in Einzelne kleine Fenster}
+
+\subsubsection{Um eine Plot zu zeichnen}\label{um-eine-plot-zu-zeichnen}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#install.packages('ggplot2', dependencies = T)}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{qplot}\NormalTok{(}\DataTypeTok{data=} \NormalTok{mtcars, }\DataTypeTok{x=}\NormalTok{wt)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-# Um eine Plot zu zeichnen
-install.packages('ggplot2', dependencies = T)
-library(ggplot2)
-gplot(data= reddit, x=age.range)
+## stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
 \end{verbatim}
+
+\includegraphics{./R-File_files/figure-latex/unnamed-chunk-15.pdf}
 
 \subsection{Datentypen}\label{datentypen}
 
@@ -392,7 +451,7 @@ Ein Beispiel für Matrizen
 \end{verbatim}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\def\labelenumi{(\arabic{enumi})}
 \setcounter{enumi}{2}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
@@ -404,7 +463,7 @@ are similar to matrices but can have more than two dimensions. See
 help(array) for details.
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\def\labelenumi{(\arabic{enumi})}
 \setcounter{enumi}{3}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
@@ -534,32 +593,172 @@ of integers to strings (overiding the alphabetical ordering). You can
 also use factors to create value labels. For more on factors see the
 UCLA page.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{6}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Nützliche Funktionen
-\end{enumerate}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{length}\NormalTok{(mtcars) }\CommentTok{# number of the variables or components}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
-length(object) # number of elements or components
-str(object)    # structure of an object 
-class(object)  # class or type of an object
-names(object)  # names
+## [1] 12
+\end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str}\NormalTok{(mtcars)    }\CommentTok{# structure of an object }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    32 obs. of  12 variables:
+##  $ mpg         : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##  $ cyl         : num  6 6 4 6 8 6 8 4 4 6 ...
+##  $ disp        : num  160 160 108 258 360 ...
+##  $ hp          : num  110 110 93 110 175 105 245 62 95 123 ...
+##  $ drat        : num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+##  $ wt          : num  2.62 2.88 2.32 3.21 3.44 ...
+##  $ qsec        : num  16.5 17 18.6 19.4 17 ...
+##  $ vs          : num  0 0 1 1 0 1 0 1 1 1 ...
+##  $ am          : num  1 1 1 0 0 0 0 0 0 0 ...
+##  $ gear        : num  4 4 4 3 3 3 3 4 4 4 ...
+##  $ carb        : num  4 4 1 1 2 1 4 2 2 4 ...
+##  $ weight_class: chr  "light" "light" "light" "average" ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(mtcars$wt)  }\CommentTok{# class or type of an object}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "numeric"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(mtcars) }\CommentTok{# many options}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "data.frame"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{names}\NormalTok{(mtcars) }\CommentTok{# names of the Variables}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "mpg"          "cyl"          "disp"         "hp"          
+##  [5] "drat"         "wt"           "qsec"         "vs"          
+##  [9] "am"           "gear"         "carb"         "weight_class"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars     }\CommentTok{# prints the object mtcars}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+##                     weight_class
+## Mazda RX4                  light
+## Mazda RX4 Wag              light
+## Datsun 710                 light
+## Hornet 4 Drive           average
+## Hornet Sportabout        average
+## Valiant                  average
+## Duster 360                 heavy
+## Merc 240D                average
+## Merc 230                 average
+## Merc 280                 average
+## Merc 280C                average
+## Merc 450SE                 heavy
+## Merc 450SL                 heavy
+## Merc 450SLC                heavy
+## Cadillac Fleetwood         heavy
+## Lincoln Continental        heavy
+## Chrysler Imperial          heavy
+## Fiat 128                   light
+## Honda Civic                light
+## Toyota Corolla             light
+## Toyota Corona              light
+## Dodge Challenger           heavy
+## AMC Javelin              average
+## Camaro Z28                 heavy
+## Pontiac Firebird           heavy
+## Fiat X1-9                  light
+## Porsche 914-2              light
+## Lotus Europa               light
+## Ford Pantera L           average
+## Ferrari Dino               light
+## Maserati Bora              heavy
+## Volvo 142E                 light
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ls}\NormalTok{()   }\CommentTok{# list current objects}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "a"        "b"        "c"        "cells"    "cnames"   "d"       
+##  [7] "e"        "f"        "gender"   "mtcars"   "mydata"   "mymatrix"
+## [13] "rating"   "rnames"   "w"        "y"
+\end{verbatim}
+
+\begin{verbatim}
 c(object,object,...)       # combine objects into a vector
 cbind(object, object, ...) # combine objects as columns
 rbind(object, object, ...) # combine objects as rows 
 
-object     # prints the object
-
-ls()       # list current objects
-rm(object) # delete an object
-
 newobject <- edit(object) # edit copy and save as newobject 
 fix(object)               # edit in place
 \end{verbatim}
+
+\begin{tabular}{|l|l|}\hline
+Age & Frequency \\ \hline
+18--25  & 15 \\
+26--35  & 33 \\
+36--45  & 22 \\ \hline
+\end{tabular}
 
 \section{Tabellen}\label{tabellen}
 
@@ -580,16 +779,13 @@ options(xtable.booktabs = TRUE)
 xtable(head(mtcars[, 1:6]), caption = "First rows of mtcars")
 \end{verbatim}
 
-When you click the \textbf{Knit} button a document will be generated
-that includes both content as well as the output of any embedded R code
-chunks within the document. You can embed an R code chunk like this:
-
 You can also embed plots, for example:
 
-\includegraphics{./R-File_files/figure-latex/unnamed-chunk-18.pdf}
+\includegraphics{./R-File_files/figure-latex/unnamed-chunk-23.pdf}
 
 Note that the \texttt{echo = FALSE} parameter was added to the code
 chunk to prevent printing of the R code that generated the plot.
+\#\#Funktionen für das Setup des Pdf´s unter R-Studion
 
 \paragraph{So macht man links}\label{so-macht-man-links}
 
