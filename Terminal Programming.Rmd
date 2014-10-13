@@ -1,0 +1,60 @@
+---
+title: "Terminal Funktionen"
+output:
+  html_document:
+    keep_tex: yes
+    theme: united
+    toc: yes
+  pdf_document:
+    highlight: zenburn
+    keep_tex: yes
+    number_sections: yes
+    toc: yes
+---
+***
+#Teriminal Notes
+
+Hier kommen die Notizen zu meinen Terminal Eingaben, die ich bislang kann.
+
+
+* `pwd` -- to see what the current working directory is.
+* `ls` -- um die Unterverzeichnise bzw. Dateien anzuzeigen.
+* `cd foo` -- to change to the foo subdirectory of your working directory.
+* `cd ..` -- to move up to the parent of the working directory.
+* `mkdir foo` -- to create a subdirectory called foo in the working directory.
+* `pandoc --version` -- um zu erfahren welche Pandoc-Version installiert ist
+
+***
+
+**um eine Datei durch pandoc in eine html-Datei zuschreiben**
+
+```
+pandoc test1.md -f markdown -t html -s -o test1.html
+
+```
+
+**um eine Datei in eine pdf datei umzuwandeln**
+```java
+public class HelloWorld{
+    public static void main(String[] args){
+        System.out.println{"Hello world"};
+    }
+}
+
+```
+pandoc text.md -s -o test1.pdf
+
+**falls man eine Option/Funktion vergessen hat --  hilft folgendes:**
+```
+pandoc --help
+-- oder -- 
+man pandoc # ruft das Manual auf
+````
+#Shortcuts
+* `up-arrow` -- to go back through your command history.
+* mit dem `Tab` werden Komandos vervollständigt.
+* mit `cmd d` lässt sich das Terminal splitten
+* mit `Ctrl-D`kommt man aus einem Programm raus
+* `ctrl-c` -- zum beenden von laufenden Programmen
+
+
