@@ -34,15 +34,10 @@ pandoc test1.md -f markdown -t html -s -o test1.html
 ```
 
 **um eine Datei in eine pdf datei umzuwandeln**
-```java
-public class HelloWorld{
-    public static void main(String[] args){
-        System.out.println{"Hello world"};
-    }
-}
-
-```
+```terminal
 pandoc text.md -s -o test1.pdf
+```
+
 
 **falls man eine Option/Funktion vergessen hat --  hilft folgendes:**
 ```

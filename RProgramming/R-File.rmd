@@ -15,6 +15,16 @@ Diese Seite listet all die R-Funktionen auf die ich schonmal benutzt habe.
 Ich versuche so weit es geht die ausgeführten Beispiele mit anzuzeigen.
 ***
 
+Um Java-Text anzuzeigen, brauch man!
+```java
+public class HelloWorld{
+    public static void main(String[] args){
+        System.out.println{"Hello world"};
+    }
+}
+
+```
+
 Mit ? können wird die Dokumentation von R aufgerufen und weitere zusätzliche Informationen werden angezeigt.
 ```{r}
 # zum Beispiel

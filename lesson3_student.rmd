@@ -111,6 +111,12 @@ Notes:
 # or 
 qplot(x = friend_count, data = pf, xlim = c(0,1000))
 ```
+Parameter für qplot:
+`x = Variabelname`
+`data = Datenname`
+`xlim = Vektor(Von, Bis)`
+`binwidth = Balkendicke`
+`facet_wrap(~gender, ncol = 2) -- Aufteilen in Einzelne kleine Fenster`
 
 ### Exploring with Bin Width
 Notes: qplot(x = friend_count, data = pf, xlim = c(0,500), binwidth = 5)
@@ -216,8 +222,33 @@ Notes:
 
 ### Transforming Data
 Notes:
+```{r eval=FALSE}
+qplot(x = friend_count, data = pf)
+
+summary(pf$friend_count)
+summary(log10(pf$friend_count))
+summary(log10(pf$friend_count+1))
+summary(sqrt(pf$friend_count))
+
+```
 
 ***
+Um mehrere Graphen in einer Darstellung zu haben, gibt es das Packet **gridExtra**
+```{r}
+install.packages("gridExtra")
+```
+Generate individual plots and arrange in grid
+```{r}
+# define individual plots
+p1 = qplot(x = friend_count, data = pf)
+p2 = qplot(x = age, data = pf, xlab = " age", ylab = "Number of users", binwidt = 1, fill=I("green"))
+p3 = qplot(x = tenure/365, data = pf, xlab = " Number of years", ylab = "Number of users", binwidt = 1, fill=I("green"))
+# arrange plots in grid
+grid.arrange(p1, p2, p3, ncol=2)
+# See more at: http://lightonphiri.org/blog/ggplot2-multiple-plots-in-one-graph-using-gridextra#sthash.uNm3sOO5.dpuf
+
+```
+
 
 ### Add a Scaling Layer
 Notes:
