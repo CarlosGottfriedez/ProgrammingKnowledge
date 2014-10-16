@@ -12,8 +12,11 @@ Notes:
 Notes:
 
 ```{r Pseudo-Facebook User Data}
-#pf <- read.csv('pseudo_facebook.tsv', sep="\t")
-#names(pf)
+getwd()
+setwd('~/Downloads')
+pf <- read.csv('pseudo_facebook.tsv', sep="\t")
+names(pf)
+
 ```
 
 ***
@@ -21,10 +24,10 @@ Notes:
 ### Histogram of Users' Birthdays
 Notes:
 
-```{r Histogram of Users\' Birthdays}
-#install.packages('ggplot2')
-#library(ggplot2)
-#qplot(x = dob_day, data = pf)
+```{r Histogram of Users\' Birthdays, eval=FALSE}
+install.packages('ggplot2')
+library(ggplot2)
+qplot(x = dob_day, data = pf)
 
 ```
 
@@ -63,7 +66,7 @@ Notes:
 ### Faceting
 Notes:
 
-```{r Faceting}
+```{r Faceting, eval=FALSE}
  qplot(x = dob_day, data = pf) +
   scale_x_discrete(breaks = 1:31) +
   facet_wrap(~dob_month, ncol = 3)
@@ -91,7 +94,7 @@ Notes:
 
 #### What code would you enter to create a histogram of friend counts?
 
-```{r Friend Count}
+```{r Friend Count , eval=FALSE}
 qplot(x = friend_count, data = pf) #+
   #scale_x_discrete(breaks = 1:10) #+
   #facet_wrap(~dob_month, ncol = 3)
@@ -202,7 +205,9 @@ qplot(x = tenure/365, data = pf, xlab = " Number of years", ylab = "Number of us
 Notes:
 
 ```{r User Ages}
-qplot(x = age, data = pf, xlab = " age", ylab = "Number of users", binwidt = 1, fill=I("green")) + scale_x_continuous(breaks = seq(5, 100 ,5), lim = c(5, 100))
+qplot(x = age, data = pf, xlab = " age", ylab = "Number of users", binwidt = 1, fill=I("green")) + scale_x_continuous(breaks = seq(5, 100 ,20), lim = c(5, 100))
+# also a iterersting thing would be this option by adding
+# scale_x_continuous(breaks=c(10,50,100), labels=c("low", "middle", "high"))
 ```
 
 #### What do you notice?
@@ -222,7 +227,7 @@ Notes:
 
 ### Transforming Data
 Notes:
-```{r eval=FALSE}
+```{r}
 qplot(x = friend_count, data = pf)
 
 summary(pf$friend_count)
@@ -244,6 +249,7 @@ p1 = qplot(x = friend_count, data = pf)
 p2 = qplot(x = age, data = pf, xlab = " age", ylab = "Number of users", binwidt = 1, fill=I("green"))
 p3 = qplot(x = tenure/365, data = pf, xlab = " Number of years", ylab = "Number of users", binwidt = 1, fill=I("green"))
 # arrange plots in grid
+library("gridExtra")
 grid.arrange(p1, p2, p3, ncol=2)
 # See more at: http://lightonphiri.org/blog/ggplot2-multiple-plots-in-one-graph-using-gridextra#sthash.uNm3sOO5.dpuf
 
@@ -254,6 +260,23 @@ grid.arrange(p1, p2, p3, ncol=2)
 Notes:
 
 ```{r Add a Scaling Layer}
+p1 = qplot(x = friend_count, data = pf) + scale_x_continuous(xlim =(0,130))
+
+p2 = qplot(x = log10(friend_count+1), data = pf)
+
+p3 = qplot(x = sqrt(friend_count), data = pf)
+
+# arrange plots in grid
+library("gridExtra")
+grid.arrange(p1, p2, p3, ncol=1)
+
+```
+
+```{r}
+#qplot(x = friend_count, data = pf)
+p1 <- qqplot(aes(x = friend_count), data = pf)
+p2 <- p1 + scale_x_log10()
+p3 <- p1 + scale_x_sqrt()
 
 ```
 
@@ -277,6 +300,7 @@ Notes:
 
 
 ***
+
 
 ### Box Plots
 Notes:
