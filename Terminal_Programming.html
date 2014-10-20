@@ -57,7 +57,11 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <div id="TOC">
 <ul>
 <li><a href="#teriminal-notes">Teriminal Notes</a></li>
-<li><a href="#shortcuts">Shortcuts</a></li>
+<li><a href="#shortcuts">Shortcuts</a><ul>
+<li><a href="#git-funktionen">Git-Funktionen</a></li>
+<li><a href="#coursera-course">Coursera course</a></li>
+<li><a href="#git">Git</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -78,13 +82,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <pre><code>pandoc test1.md -f markdown -t html -s -o test1.html
 </code></pre>
 <p><strong>um eine Datei in eine pdf datei umzuwandeln</strong></p>
-<pre class="java"><code>public class HelloWorld{
-    public static void main(String[] args){
-        System.out.println{&quot;Hello world&quot;};
-    }
-}
-</code></pre>
-<p>pandoc text.md -s -o test1.pdf</p>
+<pre class="terminal"><code>pandoc text.md -s -o test1.pdf</code></pre>
 <p><strong>falls man eine Option/Funktion vergessen hat – hilft folgendes:</strong></p>
 <pre><code>pandoc --help
 -- oder -- 
@@ -99,6 +97,41 @@ man pandoc # ruft das Manual auf</code></pre>
 <li>mit <code>Ctrl-D</code>kommt man aus einem Programm raus</li>
 <li><code>ctrl-c</code> – zum beenden von laufenden Programmen</li>
 </ul>
+<div id="git-funktionen" class="section level2">
+<h2>Git-Funktionen</h2>
+<pre><code>`q  :q  Q  :Q  ZZ     Exit.
+
+</code></pre>
+<pre><code>cd my-project
+git init</code></pre>
+<pre><code>git add project.tex</code></pre>
+<pre><code>git add figures/     # Adds the figures directory
+git add *.tex        # Adds all .tex files in the current directory
+git add .            # Adds all of the files (. is the current directory)
+</code></pre>
+<pre><code>git commit -m &quot;My first commit&quot;</code></pre>
+<p>You need to run git add whenever you change a file, not just at the beginning. This tells git that it should include these changes in the next snapshot. Alternatively you can pass the -a option to git commit to tell it to commit all changes to files that it is monitoring:</p>
+<pre><code>git commit -a -m &quot;My second commit&quot;</code></pre>
+<pre><code>git log</code></pre>
+<pre><code>git show</code></pre>
+<pre><code>git checkout f69606d7e24ad45b31bb6eb4b38192bd07f274fc # Frühere verison mit dieser Nummer wird aufgerufen.</code></pre>
+<p>Another common situation is you decide that you want to undo only one set of changes from a while ago. Perhaps you’ve edited the document in three steps: 1) Adding an abstract, 2) Updating your acknowledgements, 3) Adding in a figure. At each step you’ve created a new version in git, but now you decide that you didn’t really want to update you acknowledgements. Unfortunately this is sandwiched between other changes so a simple rollback like before won’t do. Fear not, because git is clever enough to do what you want, with the revert command:</p>
+<pre><code>git revert f69606d7e24ad45b31bb6eb4b38192bd07f274fc</code></pre>
+<pre><code>git push origin master</code></pre>
+<p>The other possiblity is you want to download changes made by someone else. This is a process which git calls ‘pulling’. To do this, simply run</p>
+<pre><code>git pull origin master</code></pre>
+<pre><code>git status</code></pre>
+</div>
+<div id="coursera-course" class="section level2">
+<h2>Coursera course</h2>
+<p>Struktur eines Terminal Kommandos <code>command flags argument</code>–<code>cp -r Documents More_docs</code> ein flag wird von <code>-</code> eingeleitet.</p>
+<p><code>/</code> – Root directorie <code>~</code>– home directorie <code>clear</code> –macht alles wieder leer <code>ls -a</code>- zeigt auch die versteckten Dateien <code>ls -al</code>- zeigt die details von versteckten und nicht versteckten datein <code>cd</code> – direktory ändern, oder bring einem zum home direktor <code>mkdir</code> – + name erstellt einen neuen ordner <code>touch test_file</code> – erzeugt ein neue Datei test_file <code>cp test_file Documents</code> – macht eine kopie vom test_file in den Ordner Documents <code>cp -r Documents More_docs</code> – kopiert ein Ordner Documents in einen andernOrdner More_docs <code>rm test_file</code> – löschen datei <code>rm More_docs</code> – löscht ordner und alle Datein darin <code>mv new_file Documents</code> – bewegt new_file zu Documents <code>mv new_file renamed_file</code> – ändert den namen von new_file zu renamed_file <code>echo Hallo welt</code> – zeigt hallo welt <code>date</code> – zeigt datum</p>
+</div>
+<div id="git" class="section level2">
+<h2>Git</h2>
+<p><a href="http://gitready.com/">Ein link</a></p>
+<p><code>git add</code> – alle neuen Dateien werden getracked von version control</p>
+</div>
 </div>
 
 

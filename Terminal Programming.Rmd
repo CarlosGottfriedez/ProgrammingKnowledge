@@ -12,8 +12,9 @@ output:
     toc: yes
 ---
 ***
-#Teriminal Notes
 
+Teriminal Notes
+==================
 Hier kommen die Notizen zu meinen Terminal Eingaben, die ich bislang kann.
 
 
@@ -28,23 +29,24 @@ Hier kommen die Notizen zu meinen Terminal Eingaben, die ich bislang kann.
 
 **um eine Datei durch pandoc in eine html-Datei zuschreiben**
 
-```
+```sh
 pandoc test1.md -f markdown -t html -s -o test1.html
 
 ```
 
 **um eine Datei in eine pdf datei umzuwandeln**
-```terminal
+```sh
 pandoc text.md -s -o test1.pdf
 ```
 
 
 **falls man eine Option/Funktion vergessen hat --  hilft folgendes:**
-```
+```sh
 pandoc --help
 -- oder -- 
 man pandoc # ruft das Manual auf
-````
+```
+
 #Shortcuts
 * `up-arrow` -- to go back through your command history.
 * mit dem `Tab` werden Komandos vervollständigt.
@@ -55,45 +57,47 @@ man pandoc # ruft das Manual auf
 ## Git-Funktionen
 
 
-
-`q  :q  Q  :Q  ZZ     Exit.
-
-
+```sh
+q  :q  Q  :Q  ZZ     Exit.
 ```
+
+```sh
 cd my-project
 git init
 ```
 
-```
+```sh
 git add project.tex
 ```
 
-```
+```sh
 git add figures/     # Adds the figures directory
 git add *.tex        # Adds all .tex files in the current directory
 git add .            # Adds all of the files (. is the current directory)
 
 ```
 
-```
+```sh
 git commit -m "My first commit"
 ```
 
 You need to run git add whenever you change a file, not just at the beginning. This tells git that it should include these changes in the next snapshot. Alternatively you can pass the -a option to git commit to tell it to commit all changes to files that it is monitoring:
 
-```
+```sh
 git commit -a -m "My second commit"
 ```
 
-```
+
+
+```sh
 git log
 ```
 
-```
+```sh
 git show
 ```
 
-```
+```sh
 git checkout f69606d7e24ad45b31bb6eb4b38192bd07f274fc # Frühere verison mit dieser Nummer wird aufgerufen.
 ```
 
@@ -108,6 +112,7 @@ git push origin master
 ```
 
 The other possiblity is you want to download changes made by someone else. This is a process which git calls ‘pulling’. To do this, simply run
+
 ```
 git pull origin master
 ```
@@ -116,3 +121,30 @@ git pull origin master
 git status
 ```
 
+## Coursera course
+
+Struktur eines Terminal Kommandos
+* `command flags argument`--`cp -r Documents More_docs`
+ein flag wird von `-` eingeleitet.
+
+* `/` -- Root directorie
+* `~`-- home directorie
+* `clear` --macht alles wieder leer
+* `ls -a`- zeigt auch die versteckten Dateien
+* `ls -al`- zeigt die details von versteckten und nicht versteckten datein
+* `cd` -- direktory ändern, oder bring einem zum home direktor
+* `mkdir` --  + name erstellt einen neuen ordner
+* `touch test_file` -- erzeugt ein neue Datei test_file
+* `cp test_file Documents` -- macht eine kopie vom test_file in den Ordner Documents
+* `cp -r Documents More_docs` -- kopiert ein Ordner Documents in einen andernOrdner More_docs
+* `rm test_file` -- löschen datei
+* `rm More_docs` -- löscht ordner und alle Datein darin
+* `mv new_file Documents` --  bewegt new_file zu Documents
+* `mv new_file renamed_file` -- ändert den namen von new_file zu renamed_file
+* `echo Hallo welt` -- zeigt hallo welt
+* `date` -- zeigt datum
+
+## Git 
+[Ein link](http://gitready.com/)
+
+* `git add` -- alle neuen Dateien werden getracked von version control
