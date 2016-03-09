@@ -21,29 +21,6 @@
 % use microtype if available
 \IfFileExists{microtype.sty}{\usepackage{microtype}}{}
 \usepackage[margin=1in]{geometry}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{48,48,48}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.94,0.87,0.69}{{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.87,0.87,0.75}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.86,0.86,0.80}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.86,0.64,0.64}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.75,0.75,0.82}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.86,0.64,0.64}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.80,0.58,0.58}{{#1}}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.50,0.62,0.50}{{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.94,0.94,0.56}{{#1}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.81,0.69}{{#1}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.94,0.94,0.56}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.80,0.80,0.80}{{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.76,0.75,0.62}{{#1}}}
-\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.80,0.80,0.80}{{#1}}}
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
               unicode=false, % unicode breaks when used with xetex
@@ -126,17 +103,9 @@ pandoc test1.md -f markdown -t html -s -o test1.html
 
 \textbf{um eine Datei in eine pdf datei umzuwandeln}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{public} \KeywordTok{class} \NormalTok{HelloWorld\{}
-    \KeywordTok{public} \DataTypeTok{static} \DataTypeTok{void} \FunctionTok{main}\NormalTok{(String[] args)\{}
-        \NormalTok{System.}\FunctionTok{out}\NormalTok{.}\FunctionTok{println}\NormalTok{\{}\StringTok{"Hello world"}\NormalTok{\};}
-    \NormalTok{\}}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
+\begin{verbatim}
 pandoc text.md -s -o test1.pdf
+\end{verbatim}
 
 \textbf{falls man eine Option/Funktion vergessen hat -- hilft
 folgendes:}
@@ -161,6 +130,138 @@ man pandoc # ruft das Manual auf
   mit \texttt{Ctrl-D}kommt man aus einem Programm raus
 \item
   \texttt{ctrl-c} -- zum beenden von laufenden Programmen
+\end{itemize}
+
+\subsection{Git-Funktionen}\label{git-funktionen}
+
+\begin{verbatim}
+q  :q  Q  :Q  ZZ     Exit.
+\end{verbatim}
+
+\begin{verbatim}
+cd my-project
+git init
+\end{verbatim}
+
+\begin{verbatim}
+git add project.tex
+\end{verbatim}
+
+\begin{verbatim}
+git add figures/     # Adds the figures directory
+git add *.tex        # Adds all .tex files in the current directory
+git add .            # Adds all of the files (. is the current directory)
+\end{verbatim}
+
+\begin{verbatim}
+git commit -m "My first commit"
+\end{verbatim}
+
+You need to run git add whenever you change a file, not just at the
+beginning. This tells git that it should include these changes in the
+next snapshot. Alternatively you can pass the -a option to git commit to
+tell it to commit all changes to files that it is monitoring:
+
+\begin{verbatim}
+git commit -a -m "My second commit"
+\end{verbatim}
+
+\begin{verbatim}
+git log
+\end{verbatim}
+
+\begin{verbatim}
+git show
+\end{verbatim}
+
+\begin{verbatim}
+git checkout f69606d7e24ad45b31bb6eb4b38192bd07f274fc # Frühere verison mit dieser Nummer wird aufgerufen.
+\end{verbatim}
+
+Another common situation is you decide that you want to undo only one
+set of changes from a while ago. Perhaps you've edited the document in
+three steps: 1) Adding an abstract, 2) Updating your acknowledgements,
+3) Adding in a figure. At each step you've created a new version in git,
+but now you decide that you didn't really want to update you
+acknowledgements. Unfortunately this is sandwiched between other changes
+so a simple rollback like before won't do. Fear not, because git is
+clever enough to do what you want, with the revert command:
+
+\begin{verbatim}
+git revert f69606d7e24ad45b31bb6eb4b38192bd07f274fc
+\end{verbatim}
+
+\begin{verbatim}
+git push origin master
+\end{verbatim}
+
+The other possiblity is you want to download changes made by someone
+else. This is a process which git calls `pulling'. To do this, simply
+run
+
+\begin{verbatim}
+git pull origin master
+\end{verbatim}
+
+\begin{verbatim}
+git status
+\end{verbatim}
+
+\subsection{Coursera course}\label{coursera-course}
+
+Struktur eines Terminal Kommandos *
+\texttt{command flags argument}--\texttt{cp -r Documents More\_docs} ein
+flag wird von \texttt{-} eingeleitet.
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \texttt{/} -- Root directorie
+\item
+  \texttt{\textasciitilde{}}-- home directorie
+\item
+  \texttt{clear} --macht alles wieder leer
+\item
+  \texttt{ls -a}- zeigt auch die versteckten Dateien
+\item
+  \texttt{ls -al}- zeigt die details von versteckten und nicht
+  versteckten datein
+\item
+  \texttt{cd} -- direktory ändern, oder bring einem zum home direktor
+\item
+  \texttt{mkdir} -- + name erstellt einen neuen ordner
+\item
+  \texttt{touch test\_file} -- erzeugt ein neue Datei test\_file
+\item
+  \texttt{cp test\_file Documents} -- macht eine kopie vom test\_file in
+  den Ordner Documents
+\item
+  \texttt{cp -r Documents More\_docs} -- kopiert ein Ordner Documents in
+  einen andernOrdner More\_docs
+\item
+  \texttt{rm test\_file} -- löschen datei
+\item
+  \texttt{rm More\_docs} -- löscht ordner und alle Datein darin
+\item
+  \texttt{mv new\_file Documents} -- bewegt new\_file zu Documents
+\item
+  \texttt{mv new\_file renamed\_file} -- ändert den namen von new\_file
+  zu renamed\_file
+\item
+  \texttt{echo Hallo welt} -- zeigt hallo welt
+\item
+  \texttt{date} -- zeigt datum
+\end{itemize}
+
+\subsection{Git}\label{git}
+
+\href{http://gitready.com/}{Ein link}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \texttt{git add} -- alle neuen Dateien werden getracked von version
+  control
 \end{itemize}
 
 \end{document}
